@@ -13,10 +13,10 @@ router.get('/',
 validatorHandler(queryParamsRoom, 'query'),
 async (req,res,next)=>{
     try {
-      console.log(req.query); 
+
       const data = await serviceRoom.find(req.query);
-      res.json(data) 
-       
+      res.json(data)    
+    
     } catch (error) {
       next(error)
     }

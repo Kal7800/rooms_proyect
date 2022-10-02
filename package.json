@@ -2,10 +2,10 @@
   "name": "backend_nodejs",
   "version": "1.0.0",
   "description": "'backend para el proyecto Room'",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "start": "node src/index.js ",
     "lint": "eslint",
     "migrations:generate": "sequelize-cli migration:generate --name",
     "migrations:run": "sequelize-cli db:migrate",
@@ -42,6 +42,6 @@
     "prettier": "^2.3.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   }
 }

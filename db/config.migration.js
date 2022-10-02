@@ -1,4 +1,4 @@
-const {config} = require('/home/kalet/Escritorio/proyect/backend_nodejs/config/config');
+const {config} = require('../config/config');
 
 
 

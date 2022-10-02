@@ -1,0 +1,63 @@
+const userService = require('./../service/service.user');
+const express = require('express');
+const validatorHandler = require('./../middleware/validator.handler');
+const uploadUser = require('./getImage/get.image');
+const {updateUser, getUser,} = require('./../schema/user.schema');
+
+const router = express.Router();
+const serviceUser = new userService();
+
+
+router.get('/',async (req,res,next)=>{
+    try {
+      const data = await serviceUser.find();
+      res.json(data)    
+    } catch (error) {
+       next(error)
+    }
+})
+
+router.get('/:id',
+validatorHandler(getUser, 'params'),
+async (req,res,next)=>{
+   try {
+    const {id} = req.params;
+    const user = await serviceUser.findOne(id);
+    res.json(user);
+   } catch (error) {
+      next(error)
+   }
+})
+
+
+router.patch('/:id',
+uploadUser.single('photo'),
+validatorHandler(getUser, 'params'),
+validatorHandler(updateUser, 'body'),
+async (req,res,next)=>{
+    try {
+    const image = req.file.filename;
+    const {id} = req.params;
+    const changes = req.body;
+    const updateUser = await serviceUser.update(id,changes);
+    const addPhoto = await serviceUser.addPhoto(id, image)
+    res.json(updateUser);
+    } catch (error) {
+        next(error)
+    }
+})
+
+router.delete('/:id',
+validatorHandler(getUser, 'params'),
+async (req,res,next)=>{
+    try {
+        const {id} = req.params;
+        const deleteUser = serviceUser.delete(id);
+        res.json(deleteUser)
+    } catch (error) {
+       next(error)
+    }
+})
+
+
+module.exports = router;

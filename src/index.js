@@ -6,6 +6,7 @@ const path = require('path')
 const cors = require('cors');
 require('./../utils/auth/index')
 
+const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
@@ -30,7 +31,7 @@ app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
     console.log('servidor en linea')
 })
 

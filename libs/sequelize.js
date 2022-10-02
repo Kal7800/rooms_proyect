@@ -2,14 +2,18 @@ const {config} = require('/home/kalet/Escritorio/proyect/backend_nodejs/config/c
 const {Sequelize} = require('sequelize');
 const setupModel = require('/home/kalet/Escritorio/proyect/backend_nodejs/db/models/index');
 
-const USER = encodeURIComponent(config.dbUser);
-const PASSWORD = encodeURIComponent(config.dbPassword);
-const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`
-
-const sequelize = new Sequelize(URI,{
+const options = {
     dialect: 'postgres',
-    logging: console.log
-})
+    logging: config.isProd ? false : console.log
+}
+
+if(config.isProd){
+    options.dialectOptions = {
+       ssl:{ rejectUnauthorized: false
+      }
+}}
+
+const sequelize = new Sequelize(config.dbUrl,options)
 
 setupModel(sequelize);
 

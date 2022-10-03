@@ -29,7 +29,7 @@ passport.authenticate('jwt', {session: false})
 ,async (req,res,next)=>{
 try {
     const body = req.headers.authorization.slice(7);
-    const secret = await config.jwtVerifyUser;
+    const secret = config.jwtSecret;
     const payload = await jwt.verify(body,secret);
    const newUser = await serviceUser.create(payload);
    res.json(newUser);

@@ -77,7 +77,7 @@ class authService {
             email: body.email,
             password: body.password
            }
-        const token = jwt.sign(payload, config.jwtVerifyUser, {expiresIn: '15min'});
+        const token = jwt.sign(payload, config.jwtSecret, {expiresIn: '15min'});
         
         const mail = {
             from: config.smtpEmail,

@@ -1,8 +1,7 @@
 const {models} = require('./../libs/sequelize');
 const bcrypt = require('bcrypt');
 const idRandom = require('./round.pass');
-const {config} = require('./../config/config')
-const jwt = require('jsonwebtoken')
+
 class userService{
     constructor(){}
 

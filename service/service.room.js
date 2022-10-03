@@ -14,7 +14,7 @@ class roomService{
        const categoria = roundCategoty(precio);
        
         const newRoom = await models.Room.create({
-          imageRoom: `http://localhost:3000/public/imgRoom/${name}`,
+          imageRoom: `https://hidden-shelf-36912.herokuapp.com/public/imgRoom/${name}`,
           categoriaPerteneciente: categoria,
           usuarioPerteneciente: idU,
           ...data

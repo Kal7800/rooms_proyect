@@ -49,7 +49,7 @@ class userService{
     async addPhoto(id,name){
       const user = await models.User.findByPk(id);
       const updateUser = await user.update({
-        photo: `http://localhost:3000/public/imgUser/${name}`
+        photo: `https://hidden-shelf-36912.herokuapp.com/public/imgUser/${name}`
       });
       return updateUser
     }

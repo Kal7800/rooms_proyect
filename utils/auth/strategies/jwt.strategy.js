@@ -4,7 +4,7 @@ const {config} = require('./../../../config/config')
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.JWT_SECRET
+    secretOrKey: 'UOtRN68jWl9p2EAZ04Jy7evczIYa1qDV'
 }
 
 const jwtStrategy = new Strategy(options, (payload,done)=>{

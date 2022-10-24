@@ -13,4 +13,8 @@ function validatorHandler(schema,property){
     }
 }
 
+<<<<<<< HEAD
 module.exports = validatorHandler;
+=======
+module.exports = validatorHandler;
+>>>>>>> f044811 (commit para front)

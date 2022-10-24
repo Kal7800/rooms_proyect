@@ -12,7 +12,11 @@ function errorHandler(err,req,res,next){
     });
 }
 
+<<<<<<< HEAD
 function boomErrorHandler(err,res,res,next){
+=======
+function boomErrorHandler(err,req,res,next){
+>>>>>>> f044811 (commit para front)
     if(err.isBoom){
     const {output} = err;
        res.status(output.statusCode).json(output.payload);    

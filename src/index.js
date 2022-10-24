@@ -12,6 +12,10 @@ app.use(cors());
 
 app.use(express.static(path.join('views')));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f044811 (commit para front)
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
@@ -31,8 +35,7 @@ app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
+
 app.listen(port)
-
-
 
 
